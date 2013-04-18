@@ -28,7 +28,7 @@ Engenheiro de Software / Equipe Técnica: Jonathan da Silva Pereira, Pedro Felip
 
 Auditor de Qualidade: Herbert Batista Nunes.
 
-- Segundo as políticas da Fábrica de Software, é o responsável pela execução do processo de Garantia da Qualidade do MPS.BR  (Guia  Geral  do  Modelo  de  Referência  para  Melhoria  de  Processo  do  Software Brasileiro,  Softex,  2011);  deve  criar  e  manter  atualizada  a  planilha  de  avaliação  do  projeto, coordenando os ajustes necessários para atender o nível F do modelo MPS.BR.
+	- Segundo as políticas da Fábrica de Software, é o responsável pela execução do processo de Garantia da Qualidade do MPS.BR  (Guia  Geral  do  Modelo  de  Referência  para  Melhoria  de  Processo  do  Software Brasileiro,  Softex,  2011);  deve  criar  e  manter  atualizada  a  planilha  de  avaliação  do  projeto, coordenando os ajustes necessários para atender o nível F do modelo MPS.BR.
 
 
 Gestor de Infraestrutura de TI: Danillo Guimarães.
@@ -73,7 +73,9 @@ O objetivo do software que deve ser especificado é apoiar e facilitar o trabalh
 *4.2 – Processo*
 
 O processo executado deve ser aderente ao nível F do MPS.BR.
+
 O projeto deve ser executado no ambiente da Fábrica de Software do INF.
+
 O projeto deve seguir as políticas para projetos da Fábrica de Software. O documento contendo essas políticas pode ser encontrado em http://fs.inf.ufg.br/repositorio/ no diretório “Politicas da Fábrica de Software”.
 
 *5 – Parte Interessada*
