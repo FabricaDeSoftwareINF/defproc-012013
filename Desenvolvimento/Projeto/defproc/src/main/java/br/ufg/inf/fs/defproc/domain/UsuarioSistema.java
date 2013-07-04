@@ -1,4 +1,4 @@
-package br.ufg.inf.fs.defproc.model;
+package br.ufg.inf.fs.defproc.domain;
 
 import java.util.Set;
 
