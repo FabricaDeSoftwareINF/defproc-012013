@@ -1,4 +1,4 @@
-package br.ufg.inf.fs.defproc.model;
+package br.ufg.inf.fs.defproc.domain;
 
 import lombok.Data;
 
@@ -7,12 +7,13 @@ import lombok.Data;
  * @author Natan Pimenta
  */
 @Data
-public class Insumos {
+public class Produtos {
 
 	private long id;
 	private Atividade atividade;
 	private String nome;
 	private String descricao;
-	private String insumo;
+	private String produto;
+	private String status;
 	
 }
