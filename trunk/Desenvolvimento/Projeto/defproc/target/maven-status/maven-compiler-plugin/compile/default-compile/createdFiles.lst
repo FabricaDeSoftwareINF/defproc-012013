@@ -1,0 +1,12 @@
+br\ufg\inf\fs\defproc\domain\Processo.class
+br\ufg\inf\fs\defproc\domain\CadastroFerramentas.class
+br\ufg\inf\fs\defproc\domain\FerramentasDaAtividade.class
+br\ufg\inf\fs\defproc\domain\Insumos.class
+br\ufg\inf\fs\defproc\domain\LogProcesso.class
+br\ufg\inf\fs\defproc\domain\ProcessoDoUsuario.class
+br\ufg\inf\fs\defproc\domain\UsuarioSistema.class
+br\ufg\inf\fs\defproc\domain\AtividadeSecundaria.class
+br\ufg\inf\fs\defproc\domain\Participante.class
+br\ufg\inf\fs\defproc\domain\Atividade.class
+br\ufg\inf\fs\defproc\domain\Anexos.class
+br\ufg\inf\fs\defproc\domain\Produtos.class
