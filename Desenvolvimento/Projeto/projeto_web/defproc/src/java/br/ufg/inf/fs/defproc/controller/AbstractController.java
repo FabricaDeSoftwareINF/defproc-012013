@@ -3,6 +3,7 @@ package br.ufg.inf.fs.defproc.controller;
 import br.ufg.inf.fs.defproc.domain.Atividade;
 import br.ufg.inf.fs.defproc.domain.FerramentasDaAtividade;
 
+
 /**
  * Classe abstrata que define o controlador de atividades no modelo MVC
  * Controller é o componente intermediário entre a apresentação (View) e os componentes de negócio (Serviços + DAO + Model).
@@ -14,7 +15,7 @@ import br.ufg.inf.fs.defproc.domain.FerramentasDaAtividade;
 
 public abstract class AbstractController {
     
-    private Atividade atividade;
+   private Atividade atividade;
 
     public AbstractController(Atividade atividade) {
         this.atividade = atividade;
