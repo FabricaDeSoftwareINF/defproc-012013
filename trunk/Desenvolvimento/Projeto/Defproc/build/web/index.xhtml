@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+
+    </h:head>
+
+    <h:body>
+
+        <div id="page">
+
+            <div id="header">
+                <ui:insert name="header" >
+                    <ui:include src="header.xhtml" />
+                </ui:insert>
+            </div>
+
+            <div id="content">
+                <br/>
+                <h:form>
+                    <p:panel header="Atividades" style="width: 40%;height: 70%;float:left">
+                        <p:tabView>
+                            <p:tab title="Tradicional">
+                                <h:outputText value="Atividade X"/><br/>
+                                <h:outputText value="Atividade Z"/>
+                            </p:tab>
+                            <p:tab title="Ágil">
+                                <h:outputText value="Atividade T"/><br/>
+                            </p:tab>
+                            <p:tab title="Ambos">
+                                <h:outputText value="Atividade B"/><br/>
+                                <h:outputText value="Atividade H"/><br/>
+                                <h:outputText value="Atividade Q"/>
+                            </p:tab>
+                        </p:tabView>
+                    </p:panel>
+                    <p:panel header="Meus Projetos" style="width: 40%;height: 35%;float: right">
+                        <h:outputText value="DEFPROC"/><br/>
+                    </p:panel>
+                    <p:panel header="Minhas Atividades" style="width: 40%;height: 35%;float: right">
+                        <p:commandLink value="Elaborar um documento de requisitos" action="#" style="color: blue"/><br/>
+                        <p:commandLink value="Elaborar um termo de abertura do projeto" action="#" style="color: blue"/>
+                        
+                    </p:panel>
+                </h:form>
+            </div>
+
+            <div id="footer">
+
+            </div>
+
+        </div>
+
+    </h:body>
+</html>
+

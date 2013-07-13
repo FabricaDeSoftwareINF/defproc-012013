@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.ufg.inf.fs.defproc</groupId>
-	<artifactId>defproc</artifactId>
+	<artifactId>defproc_antigo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>defproc</name>
+	<name>defproc_antigo</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
