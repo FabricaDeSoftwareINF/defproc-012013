@@ -10,7 +10,7 @@ and open the template in the editor.
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"> 
     <h:head>
-        <title></title>
+        <title>DEFPROC - UFG</title>
     </h:head>
     <h:body>
 
@@ -28,33 +28,25 @@ and open the template in the editor.
             </center>
 
             <h:form>
-                <p:panel id="login" header="Login" style="width: 300px;height: 200px;position: absolute;top:50%;left:50%;margin-top:-100px;margin-left:-150px;">
+                <p:panel id="login" header="Login" style="width: auto;height: auto;position: absolute;top:50%;left:50%;margin-top:-100px;margin-left:-150px;">
                     <h:panelGrid columns="2">
-
-
                         <h:outputText value="Login: "/>
                         <p:inputText value="#{login.usuario.login}" required="true" requiredMessage="Informe o login!" />
 
                         <h:outputText value="Password: "/>
                         <p:password value="#{login.usuario.password}" required="true" requiredMessage="Informe a senha!" />
-
-
+                        
                         <h:outputText />
-                        <h:panelGrid columns="2">
-                            <p:commandLink value="Esqueci minha senha" onclick="alert('Por favor contacte o administrador do sistema! ')" style="font-size: 14px;color: blue"/>
-
+                        
+                        <f:facet name="footer">
+                            <p:commandLink value="Esqueci minha senha" onclick="alert('Por favor contacte o administrador do sistema! ');" style="font-size: 14px;color: blue"/>
                             <p:commandButton action="#{login.login}" update=":messages" value="Logar" ajax="false"/>
-                        </h:panelGrid>
+                        </f:facet>                        
                     </h:panelGrid>
 
                 </p:panel>
 
             </h:form>
-
-        
-        
-
-
 
             <center>
                 <br/>
