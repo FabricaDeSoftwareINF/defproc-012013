@@ -1,0 +1,6 @@
+Tela de modelagem de atividade (que vai influenciar diretamente na tela
+de instanciar atividade).
+
+
+Verificar se o gerente de processos do sistema tem autonomia para controlar 
+um projeto (gerenciando os participantes do projeto, por exemplo).
