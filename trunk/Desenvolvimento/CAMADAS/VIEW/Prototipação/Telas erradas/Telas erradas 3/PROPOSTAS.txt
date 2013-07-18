@@ -1,0 +1,29 @@
+INTERNAMENTE (APENAS PARA MODELAR O BANCO) NÃO EXISTE DISTINçÂO ENTRE PROCESSO,
+ATIViDADE OU TAREFA. NO BANCO, TUDO ISSO É ATIVIDADE.
+
+PORÉM, É PRECISO LIMITAR ISSO NA HORA DE GERAR AS TELAS.
+
+PROPOSTA (exemplo):
+
+001	GERENCIAR PROJETO	3 sub-atividades			(é um processo)
+
+
+	002	ATIVIDADE-1						(é uma atividade)	
+
+	003	ATIVIDADE-2						(é uma atividade)
+
+	004	ATIVIDADE-3	2 sub-tarefas				(é uma atividade)
+
+
+		005	TAREFA-1					(é uma tarefa)
+
+		006	TAREFA-2					(é uma tarefa)
+
+
+
+007	GERENCIAR REQUISITOS						(é um processo)
+
+
+
+
+repensar
