@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <body>
+          
+        <ui:composition>
+
+            <h:form>
+                <h:outputText value="DEFPROC - Sistema de Gestão de Processos de Software" style="float: left"/>
+
+
+                <p:commandLink value="Logout" action="/login.xhtml" actionListener="#{login.logout()}" style="margin-right: 10px; float: right" ajax="false"/>
+
+                <p:spacer width="100" height="10" style="float: right"/>
+                <h:outputText value="Administrador: #{login.usuario.email}" style="float: right"/>
+                <br/>
+                <p:breadCrumb>  
+                    <p:menuitem value="Home" url="index_admin.xhtml" />  
+                    <p:menuitem value="Projetos" url="projetos.xhtml" />  
+                    <p:menuitem value="Banco de Atividades" url="#" />  
+                </p:breadCrumb> 
+            </h:form>
+
+        </ui:composition>
+
+
+
+
+    </body>
+</html>
