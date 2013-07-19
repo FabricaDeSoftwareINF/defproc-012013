@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+    <h:head>
+        <title></title>
+    </h:head>
+    <h:body>
+
+
+        <p:growl id="messages" life="5000"/>
+
+        
+
+
+            <center>
+                <br/>
+                <br/>
+
+                <h:outputText value="DEFPROC - Sistema de Gestão de Processos de Software" style="font-size: 25px;"/>
+            </center>
+
+            <h:form>
+                <p:panel id="login" header="Login" style="width: 300px;height: 200px;position: absolute;top:50%;left:50%;margin-top:-100px;margin-left:-150px;">
+                    <h:panelGrid columns="2">
+
+
+                        <h:outputText value="Email: "/>
+                        <p:inputText value="#{login.usuario.email}" required="true" requiredMessage="Informe o login!" />
+
+                        <h:outputText value="Password: "/>
+                        <p:password value="#{login.usuario.password}" required="true" requiredMessage="Informe a senha!" />
+
+
+                        <h:outputText />
+                        <h:panelGrid columns="2">
+                            <p:commandLink value="Esqueci minha senha" onclick="alert('Por favor contacte o administrador do sistema! ')" style="font-size: 14px;color: blue"/>
+
+                            <p:commandButton actionListener="#{login.login}" update=":messages" value="Logar" ajax="false"/>
+                        </h:panelGrid>
+                    </h:panelGrid>
+
+                </p:panel>
+
+            </h:form>
+
+        
+        
+
+
+
+            <center>
+                <br/>
+                <br/>
+
+                <h:outputText value="Contato com o Administrador" style="font-size: 17px;"/><br/>
+                <h:outputText value="administradorfs@inf.ufg.br" style="font-size: 17px;"/><br/>
+                <h:outputText value="Instituto de Informática - Universidade Federal de Goiás" style="font-size: 17px;"/>
+            </center>
+        
+
+    </h:body>
+</html>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+
+    </h:head>
+
+    <h:body>
+        <p:growl id="messages" life="5000"/>
+
+        <div id="page">
+
+            <div id="header">
+                <ui:insert name="header" >
+                    <ui:include src="header_admin.xhtml" />
+                </ui:insert>
+            </div>
+
+            <div id="content">
+                <br/>
+                <h:form id="projetosForm">
+                    <p:panel header="Projetos">
+                        <p:dataGrid columns="1" value="#{projetoBean.listaProjetos}" var="projeto">
+                            <p:panel>
+                                <h:outputText value="#{projeto.nome}"/>
+                                <p:spacer style="width: 20px"/>
+                                <p:commandLink value="Gerenciar Participantes" style="color: blue" disabled="#{not projeto.ativo}" update=":participantesForm" oncomplete="participantesDialog.show();">
+                                    <f:setPropertyActionListener target="#{projetoBean.selected}" value="#{projeto}"/>
+                                </p:commandLink>
+                                <p:spacer style="width: 20px"/>
+                                <p:commandLink value="Visitar" action="#" style="color: blue" disabled="#{not projeto.ativo}">
+                                    <f:setPropertyActionListener target="#{projetoBean.selected}" value="#{projeto}"/>
+                                </p:commandLink>
+                                <p:spacer style="width: 20px"/>
+                                <h:outputText value="Ativo" style="color: green" rendered="#{projeto.ativo}"/>
+                                <h:outputText value="Desativado" style="color: red" rendered="#{not projeto.ativo}"/>
+                                <p:spacer style="width: 20px"/>
+                                <p:commandButton value="Ativar" rendered="#{not projeto.ativo}" actionListener="#{projetoBean.ativaProjeto(projeto)}" update=":projetosForm :messages"/>
+
+                                <p:commandButton value="Desativar" rendered="#{projeto.ativo}" actionListener="#{projetoBean.desativaProjeto(projeto)}" update=":projetosForm :messages"/>
+
+
+                            </p:panel>
+
+                        </p:dataGrid>
+                    </p:panel>
+                    <br/>
+                    <p:commandButton icon="ui-icon-plus" value="Cadastrar novo projeto" oncomplete="newProjetoDialog.show();" update=":newProjetoForm" actionListener="#{projetoBean.preparaNovo()}"/>
+                    <p:commandButton icon="ui-icon-plus" value="Cadastrar novo usuário" style="float: right"/>
+                </h:form>
+
+                <h:form id="newProjetoForm">
+                    <p:dialog header="Novo Projeto" id="newProjetoDialog" widgetVar="newProjetoDialog" modal="true" resizable="false">
+                        <p:panelGrid columns="1">
+
+                            <h:outputText value="Nome do Projeto:"/>
+                            <p:inputText value="#{projetoBean.selected.nome}" required="true" requiredMessage="Informe o nome do projeto!"/>
+                            <h:outputText value="Descrição:"/>
+                            <p:inputTextarea value="#{projetoBean.selected.descricao}" required="true" requiredMessage="Informe a descrição do projeto!"/>
+                            <center>
+                                <p:commandButton value="Salvar" actionListener="#{projetoBean.insert()}" onclick="projetoDialog.hide();" update=":projetosForm :messages"/>
+                            </center>
+
+                        </p:panelGrid>
+
+                    </p:dialog>
+                </h:form>
+
+                <h:form id="participantesForm">
+                    <p:dialog header="Participantes" id="participantesDialog" widgetVar="participantesDialog">
+                        <p:tabView>
+                            <p:tab title="Gerentes">
+                                <p:dataTable value="#{projetoBean.selected.gerentes}" emptyMessage="Nenhum gerente cadastrado." var="usuario" id="gerentesTable">
+                                    <p:column style="width: 30px">
+                                        <f:facet name="header">
+                                            <h:outputText value="ID"/>
+                                        </f:facet>
+                                        <h:outputText value="#{usuario.id_usuario}"/>
+                                    </p:column>
+
+                                    <p:column style="width: 30px">
+                                        <f:facet name="header">
+                                            <h:outputText value="Nome"/>
+                                        </f:facet>
+                                        <h:outputText value="#{usuario.nome}"/>
+                                    </p:column>
+
+                                    <p:column style="width: 30px">
+                                        <f:facet name="header">
+                                            <h:outputText value="E-mail"/>
+                                        </f:facet>
+                                        <h:outputText value="#{usuario.email}"/>
+                                    </p:column>
+                                </p:dataTable>
+                                <br/>
+                                <p:selectOneMenu value="#{usuarioBean.selected}" style="float: left">
+                                    <f:selectItems value="#{usuarioBean.listaUsuarios}" var="usuario" itemLabel="#{usuario.nome} - #{usuario.email}" itemValue="#{usuario}"/>
+                                </p:selectOneMenu>
+                                <p:commandButton value="Adicionar" actionListener="#{projetoBean.insertGerente(usuario)}"/>
+                                
+                            </p:tab>
+                            <p:tab title="Participantes">
+                                <p:dataTable value="#{projetoBean.selected.participantes}" emptyMessage="Nenhum participante cadastrado." var="usuario" id="participantesTable">
+                                    <p:column style="width: 30px">
+                                        <f:facet name="header">
+                                            <h:outputText value="ID"/>
+                                        </f:facet>
+                                        <h:outputText value="#{usuario.id_usuario}"/>
+                                    </p:column>
+
+                                    <p:column style="width: 30px">
+                                        <f:facet name="header">
+                                            <h:outputText value="Nome"/>
+                                        </f:facet>
+                                        <h:outputText value="#{usuario.nome}"/>
+                                    </p:column>
+
+                                    <p:column style="width: 30px">
+                                        <f:facet name="header">
+                                            <h:outputText value="E-mail"/>
+                                        </f:facet>
+                                        <h:outputText value="#{usuario.email}"/>
+                                    </p:column>
+                                </p:dataTable>
+                                <br/>
+                                <p:selectOneMenu value="#{usuarioBean.selected}" style="float: left">
+                                    <f:selectItems value="#{usuarioBean.listaUsuarios}" var="usuario" itemLabel="#{usuario.nome} - #{usuario.email}" itemValue="#{usuario}"/>
+                                </p:selectOneMenu>
+                                <p:commandButton value="Adicionar" actionListener="#{projetoBean.insertParticipante(usuario)}"/>
+                            </p:tab>
+                            <p:tab title="Aprovadores">
+                                <p:dataTable value="#{projetoBean.selected.aprovadores}" emptyMessage="Nenhum aprovador cadastrado." var="usuario" id="aprovadoresTable">
+                                    <p:column style="width: 30px">
+                                        <f:facet name="header">
+                                            <h:outputText value="ID"/>
+                                        </f:facet>
+                                        <h:outputText value="#{usuario.id_usuario}"/>
+                                    </p:column>
+
+                                    <p:column style="width: 30px">
+                                        <f:facet name="header">
+                                            <h:outputText value="Nome"/>
+                                        </f:facet>
+                                        <h:outputText value="#{usuario.nome}"/>
+                                    </p:column>
+
+                                    <p:column style="width: 30px">
+                                        <f:facet name="header">
+                                            <h:outputText value="E-mail"/>
+                                        </f:facet>
+                                        <h:outputText value="#{usuario.email}"/>
+                                    </p:column>
+                                </p:dataTable>
+                                <br/>
+                                <p:selectOneMenu value="#{usuarioBean.selected}" style="float: left">
+                                    <f:selectItems value="#{usuarioBean.listaUsuarios}" var="usuario" itemLabel="#{usuario.nome} - #{usuario.email}" itemValue="#{usuario}"/>
+                                </p:selectOneMenu>
+                                <p:commandButton value="Adicionar" actionListener="#{projetoBean.insertAprovador(usuario)}"/>
+                            </p:tab>
+                            <p:tab title="Observadores">
+                                <p:dataTable value="#{projetoBean.selected.observadores}" emptyMessage="Nenhum observador cadastrado." var="usuario" id="observadoresTable">
+                                    <p:column style="width: 30px">
+                                        <f:facet name="header">
+                                            <h:outputText value="ID"/>
+                                        </f:facet>
+                                        <h:outputText value="#{usuario.id_usuario}"/>
+                                    </p:column>
+
+                                    <p:column style="width: 30px">
+                                        <f:facet name="header">
+                                            <h:outputText value="Nome"/>
+                                        </f:facet>
+                                        <h:outputText value="#{usuario.nome}"/>
+                                    </p:column>
+
+                                    <p:column style="width: 30px">
+                                        <f:facet name="header">
+                                            <h:outputText value="E-mail"/>
+                                        </f:facet>
+                                        <h:outputText value="#{usuario.email}"/>
+                                    </p:column>
+                                </p:dataTable>
+                                <br/>
+                                <p:selectOneMenu value="#{usuarioBean.selected}" style="float: left">
+                                    <f:selectItems value="#{usuarioBean.listaUsuarios}" var="usuario" itemValue="#{usuario}" itemLabel="#{usuario.nome} - #{usuario.email}"/>
+                                    <f:converter converterId="usuarioConverter"/>
+                                </p:selectOneMenu>
+                                <p:commandButton value="Adicionar" actionListener="#{projetoBean.insertObservador(usuarioBean.selected)}" update="observadoresTable :messages"/>
+                            </p:tab>
+                        </p:tabView>
+                    </p:dialog>
+                </h:form>
+
+            </div>
+
+            <div id="footer">
+
+            </div>
+
+        </div>
+
+    </h:body>
+</html>
+
